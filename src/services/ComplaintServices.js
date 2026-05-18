@@ -18,13 +18,13 @@ export const ComplaintServices = {
   },
 
   async submitToGoogleForms(data) {
-    const formUrl = import.meta.env.VITE_GOOGLE_FORM_URL || "https://docs.google.com/forms/d/e/1FAIpQLSfhsample_test_id/formResponse";
-    const entryName = import.meta.env.VITE_GF_ENTRY_NAME || "entry.1000001";
-    const entryPhone = import.meta.env.VITE_GF_ENTRY_PHONE || "entry.1000002";
-    const entryStreet = import.meta.env.VITE_GF_ENTRY_STREET || "entry.1000003";
-    const entryCategory = import.meta.env.VITE_GF_ENTRY_CATEGORY || "entry.1000004";
-    const entryPriority = import.meta.env.VITE_GF_ENTRY_PRIORITY || "entry.1000005";
-    const entryDesc = import.meta.env.VITE_GF_ENTRY_DESC || "entry.1000006";
+    const formUrl = import.meta.env.VITE_GOOGLE_FORM_URL || "https://docs.google.com/forms/d/e/1FAIpQLSfRjAtBBYa1FmLHOQcN8pSHpAmPVVNpLTDAeP6S7qG_6OIUbQ/formResponse";
+    const entryName = import.meta.env.VITE_GF_ENTRY_NAME || "entry.1251728978";
+    const entryPhone = import.meta.env.VITE_GF_ENTRY_PHONE || "entry.1499971927";
+    const entryStreet = import.meta.env.VITE_GF_ENTRY_STREET || "entry.83265760";
+    const entryCategory = import.meta.env.VITE_GF_ENTRY_CATEGORY || "entry.1629674272";
+    const entryPriority = import.meta.env.VITE_GF_ENTRY_PRIORITY || "entry.1863000140";
+    const entryDesc = import.meta.env.VITE_GF_ENTRY_DESC || "entry.348512600";
 
     const formData = new URLSearchParams();
     formData.append(entryName, data.citizenName || "");
