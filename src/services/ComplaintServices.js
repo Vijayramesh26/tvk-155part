@@ -1,20 +1,18 @@
 const LOCAL_STORAGE_KEY = "tvk_155_complaints";
 
 export const ComplaintServices = {
-  // Helper to get local complaints
+  // Enforce ZERO data persistence in localStorage for maximum privacy
   getLocalComplaints() {
-    const data = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (!data) return [];
-    try {
-      return JSON.parse(data);
-    } catch (e) {
-      return [];
+    if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
     }
+    return [];
   },
 
-  // Helper to save local complaints
-  saveLocalComplaints(complaints) {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(complaints));
+  saveLocalComplaints() {
+    if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+    }
   },
 
   async submitToGoogleForms(data) {
@@ -64,10 +62,8 @@ export const ComplaintServices = {
     // 1. Transparently forward data to Google Forms backend
     this.submitToGoogleForms(newRecord);
 
-    // 2. Save directly to local storage
-    const localList = this.getLocalComplaints();
-    localList.unshift(newRecord);
-    this.saveLocalComplaints(localList);
+    // 2. Enforce zero local storage trace (clean removal)
+    this.saveLocalComplaints();
 
     return newId;
   },
@@ -76,47 +72,12 @@ export const ComplaintServices = {
     return this.getLocalComplaints();
   },
 
-  async updateComplaintStatus(id, newStatus) {
-    const localList = this.getLocalComplaints();
-    const item = localList.find((c) => c.id === id || c.complaintId === id);
-    if (item) {
-      item.status = newStatus;
-      item.updatedAt = new Date().toISOString();
-      this.saveLocalComplaints(localList);
-    }
-  },
-
-  async updateComplaintPriority(id, newPriority) {
-    const localList = this.getLocalComplaints();
-    const item = localList.find((c) => c.id === id || c.complaintId === id);
-    if (item) {
-      item.priority = newPriority;
-      item.updatedAt = new Date().toISOString();
-      this.saveLocalComplaints(localList);
-    }
-  },
-
-  async updateComplaintRemarks(id, remarks) {
-    const localList = this.getLocalComplaints();
-    const item = localList.find((c) => c.id === id || c.complaintId === id);
-    if (item) {
-      item.adminRemarks = remarks;
-      item.updatedAt = new Date().toISOString();
-      this.saveLocalComplaints(localList);
-    }
-  },
-
-  async upvoteComplaint(id) {
-    const localList = this.getLocalComplaints();
-    const item = localList.find((c) => c.id === id || c.complaintId === id);
-    if (item) {
-      item.upvotes = (item.upvotes || 0) + 1;
-      this.saveLocalComplaints(localList);
-    }
-  },
+  async updateComplaintStatus() {},
+  async updateComplaintPriority() {},
+  async updateComplaintRemarks() {},
+  async upvoteComplaint() {},
 
   async seedInitialData() {
-    // No mock seeding for production launch
     return;
   },
 
