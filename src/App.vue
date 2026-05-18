@@ -3,15 +3,15 @@
     <!-- Top Premium Banner -->
     <v-app-bar app color="#800000" elevation="4" height="84" class="px-1 px-sm-4 d-flex align-center">
       <v-container class="d-flex align-center justify-space-between fill-height py-0 max-w-7xl h-100 px-1 px-md-4 my-auto">
-        <div class="d-flex align-center gap-2 py-1 my-auto flex-grow-1" style="max-width: 70%;">
-          <v-avatar :size="$vuetify?.display?.xs ? 42 : 56" class="border-2 border-gold mr-1 mr-sm-3 flex-shrink-0 shadow my-auto" color="white">
+        <div class="d-flex align-center gap-2 py-1 my-auto flex-grow-1 overflow-hidden" style="max-width: 80%;">
+          <v-avatar class="border-2 border-gold mr-1 mr-sm-3 flex-shrink-0 shadow my-auto avatar-custom" color="white">
             <v-img :src="vijayPhoto" cover alt="Thalapathy Vijay"></v-img>
           </v-avatar>
-          <div class="d-flex flex-column justify-center my-auto pt-1 pt-sm-0 flex-grow-1">
-            <div class="text-subtitle-2 text-sm-h6 font-weight-black text-white tamil-title line-height-tight mb-n1 app-bar-title">
+          <div class="d-flex flex-column justify-center my-auto pt-1 pt-sm-0 flex-grow-1 overflow-hidden">
+            <div class="text-subtitle-1 text-sm-h6 font-weight-black text-white tamil-title line-height-tight mb-n1 app-bar-title text-truncate">
               {{ t.app.title }}
             </div>
-            <div class="text-caption text-gold font-weight-bold d-flex align-center mt-1">
+            <div class="text-caption text-gold font-weight-bold d-flex align-center mt-1 text-truncate">
               <v-icon size="14" color="amber" class="mr-1 flex-shrink-0">mdi-map-marker-star</v-icon>
               <span class="text-truncate">{{ t.app.ward }}</span>
             </div>
@@ -33,57 +33,21 @@
           </v-btn>
         </div>
 
-        <!-- Language Toggle Button & Mobile Menu Toggle -->
-        <div class="d-flex align-center flex-shrink-0 ml-2 ml-sm-4 my-auto">
+        <!-- Language Toggle Button -->
+        <div class="d-flex align-center flex-shrink-0 ml-2 my-auto">
           <v-btn
             variant="outlined"
             color="amber"
-            class="rounded-pill font-weight-black text-white my-auto px-4"
-            :size="$vuetify?.display?.xs ? 'small' : 'default'"
+            class="rounded-pill font-weight-black text-white my-auto px-3 px-sm-4 py-1"
+            size="small"
             @click="toggleLang"
           >
             <v-icon left size="16" class="mr-1">mdi-translate</v-icon>
-            {{ t.app.toggleLang }}
+            <span class="text-caption font-weight-bold">{{ t.app.toggleLang }}</span>
           </v-btn>
-
-          <v-app-bar-nav-icon
-            class="d-sm-none text-white font-weight-bold ml-1 my-auto"
-            @click="drawer = !drawer"
-          ></v-app-bar-nav-icon>
         </div>
       </v-container>
     </v-app-bar>
-
-    <!-- Navigation Drawer for Mobile -->
-    <v-navigation-drawer v-model="drawer" location="right" temporary class="mobile-drawer" color="#ffffff">
-      <div class="pa-4 gradient-header text-center py-6">
-        <v-avatar size="80" color="white" class="mb-3 mx-auto shadow border-2 border-gold">
-          <v-img :src="vijayPhoto" cover alt="Thalapathy Vijay"></v-img>
-        </v-avatar>
-        <h3 class="text-white font-weight-bold tamil-title">{{ t.app.ward }}</h3>
-        <p class="text-caption text-gold mb-0">{{ t.app.tagline }}</p>
-      </div>
-      <v-list class="pt-4 pa-2">
-        <v-list-item
-          v-for="tab in navigationTabs"
-          :key="tab.route"
-          :to="tab.route"
-          @click="drawer = false"
-          active-color="primary"
-          class="my-2 rounded-lg font-weight-bold"
-        >
-          <template v-slot:prepend>
-            <v-icon :icon="tab.icon" color="primary" class="mr-3"></v-icon>
-          </template>
-          <v-list-item-title class="font-weight-black text-body-1 text-maroon">
-            {{ tab.label }}
-          </v-list-item-title>
-        </v-list-item>
-      </v-list>
-      <div class="pa-4 absolute bottom-0 left-0 right-0 text-center text-caption text-grey">
-        {{ t.app.ward }} © 2026
-      </div>
-    </v-navigation-drawer>
 
     <!-- Mobile Bottom Navigation (Always accessible on phones) -->
     <v-bottom-navigation
@@ -221,9 +185,22 @@ export default {
   margin: 0 auto;
 }
 
+.avatar-custom {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+@media (min-width: 600px) {
+  .avatar-custom {
+    width: 56px !important;
+    height: 56px !important;
+  }
+}
+
 .app-bar-title {
-  white-space: normal !important;
-  word-break: break-word;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   line-height: 1.15 !important;
 }
 
