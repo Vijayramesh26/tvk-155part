@@ -116,12 +116,13 @@
       ></v-textarea>
 
       <!-- Action Buttons -->
-      <div class="d-flex flex-column flex-sm-row justify-center align-center gap-3 mt-8 w-100">
+      <div class="d-flex flex-wrap justify-center align-center gap-4 mt-8 mb-4 w-100 px-2">
         <v-btn
           type="button"
           variant="outlined"
           color="grey-darken-2"
-          class="font-weight-bold px-6 py-3 rounded-pill w-100 w-sm-auto my-1"
+          class="font-weight-bold px-6 py-3 rounded-pill my-1"
+          style="min-width: 140px;"
           size="large"
           @click="resetForm"
           :disabled="isLoading"
@@ -132,7 +133,8 @@
 
         <v-btn
           type="submit"
-          class="btn-tvk-maroon font-weight-black px-8 py-3 rounded-pill w-100 w-sm-auto my-1"
+          class="btn-tvk-maroon font-weight-black px-8 py-3 rounded-pill my-1 flex-grow-1 flex-sm-grow-0"
+          style="min-width: 240px;"
           size="large"
           :loading="isLoading"
           :disabled="!valid || isLoading"
