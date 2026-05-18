@@ -12,10 +12,10 @@
     "@mdi/font": "^7.4.47",
     "firebase": "^10.12.0",
     "pinia": "^3.0.4",
-    "vite-plugin-vuetify": "^2.0.3",
+    "vite-plugin-vuetify": "1.0.2",
     "vue": "^3.3.4",
     "vue-router": "^4.3.0",
-    "vuetify": "^3.5.15"
+    "vuetify": "3.5.15"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
