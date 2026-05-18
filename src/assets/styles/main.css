@@ -1,0 +1,124 @@
+:root {
+  --tvk-maroon: #800000;
+  --tvk-maroon-dark: #500000;
+  --tvk-gold: #FFD700;
+  --tvk-gold-dark: #D4AF37;
+  --tvk-gold-light: #FFF8DC;
+  --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --shadow-premium: 0 10px 30px rgba(128, 0, 0, 0.15);
+  --border-radius-lg: 16px;
+  --border-radius-md: 12px;
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Merriweather', serif;
+  --font-tamil-calligraphy: 'Kavivanar', cursive;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+}
+
+/* Flex Alignment & Gap Helpers for Vuetify */
+.align-items-center {
+  align-items: center !important;
+  align-content: center !important;
+}
+
+.gap-1 { gap: 0.5rem !important; }
+.gap-2 { gap: 1rem !important; }
+.gap-3 { gap: 1.5rem !important; }
+.gap-4 { gap: 2rem !important; }
+
+.w-100 { width: 100% !important; }
+@media (min-width: 600px) {
+  .w-sm-auto { width: auto !important; }
+}
+
+/* Typography Utility */
+.tamil-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+}
+
+.tamil-calligraphy {
+  font-family: var(--font-tamil-calligraphy);
+}
+
+/* Premium Card & Glassmorphism */
+.premium-card {
+  background: var(--card-bg) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--shadow-premium) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(128, 0, 0, 0.25) !important;
+}
+
+/* Gradient Headers */
+.gradient-header {
+  background: linear-gradient(135deg, var(--tvk-maroon) 0%, #A00000 50%, var(--tvk-maroon-dark) 100%);
+  color: #ffffff;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(90deg, var(--tvk-gold) 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Custom Buttons */
+.btn-tvk-maroon {
+  background: var(--tvk-maroon) !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  border-radius: 50px !important;
+  padding: 12px 30px !important;
+  box-shadow: 0 4px 15px rgba(128, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-tvk-maroon:hover {
+  background: var(--tvk-gold) !important;
+  color: var(--tvk-maroon) !important;
+  transform: scale(1.05);
+}
+
+/* Status Chips */
+.chip-resolved {
+  background: rgba(40, 167, 69, 0.15) !important;
+  color: #28a745 !important;
+  font-weight: bold !important;
+}
+
+.chip-progress {
+  background: rgba(255, 193, 7, 0.2) !important;
+  color: #d39e00 !important;
+  font-weight: bold !important;
+}
+
+.chip-pending {
+  background: rgba(220, 53, 69, 0.15) !important;
+  color: #dc3545 !important;
+  font-weight: bold !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
