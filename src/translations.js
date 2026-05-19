@@ -20,6 +20,8 @@ export const translations = {
         emergency: "அவசர தொடர்புகளுக்கு:",
         secretaryWa: "வட்டச் செயலாளர் WhatsApp",
         copyright: "உரிமை © 2026 தமிழக வெற்றிக் கழகம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+        developedBy: "வடிவமைப்பு & மேலாண்மை:",
+        developerName: "VIJAYRAMESH",
       },
     },
     register: {
@@ -175,6 +177,8 @@ export const translations = {
         emergency: "For Emergency Contact:",
         secretaryWa: "Ward Secretary WhatsApp",
         copyright: "Copyright © 2026 Tamilaga Vettri Kazhagam. All rights reserved.",
+        developedBy: "Developed & Managed by:",
+        developerName: "VIJAYRAMESH",
       },
     },
     register: {

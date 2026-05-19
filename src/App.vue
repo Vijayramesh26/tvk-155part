@@ -116,8 +116,15 @@
               {{ t.app.footer.secretaryWa }}
             </v-btn>
           </v-col>
-          <v-col cols="12" md="4" class="text-md-right text-caption text-grey-lighten-1">
-            <div>{{ t.app.footer.copyright }}</div>
+          <v-col cols="12" md="4" class="text-md-right text-caption text-grey-lighten-1 my-auto">
+            <div class="mb-1">{{ t.app.footer.copyright }}</div>
+            <div class="d-flex align-center justify-md-end text-amber-lighten-1 font-weight-medium mt-1">
+              <span>{{ t.app.footer.developedBy }}</span>
+              <a href="https://rameshvijay-portfolio.web.app/" target="_blank" class="text-gold font-weight-black ml-1 text-decoration-none developer-link d-flex align-center">
+                {{ t.app.footer.developerName }}
+                <v-icon size="14" class="ml-1">mdi-open-in-new</v-icon>
+              </a>
+            </div>
           </v-col>
         </v-row>
       </v-container>
@@ -236,5 +243,15 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.developer-link {
+  transition: all 0.3s ease;
+}
+
+.developer-link:hover {
+  text-decoration: underline !important;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 </style>
